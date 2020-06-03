@@ -1,11 +1,11 @@
-﻿namespace Learning.DesignPatterns.Infrastructure.Repository.Implementation
-{
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Linq.Expressions;
-    using Learning.DesignPatterns.Infrastructure.Contexts;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Linq.Expressions;
+using Learning.DesignPatterns.Infrastructure.Contexts;
 
+namespace Learning.DesignPatterns.Infrastructure.Repository.Implementation
+{
     class GenericRepository<T>
         : IRepository<T> where T : class
     {
