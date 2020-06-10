@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Learning.DesignPatterns.Domain.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace Learning.DesignPatterns.Infrastructure.Contexts
 {
@@ -7,6 +8,8 @@ namespace Learning.DesignPatterns.Infrastructure.Contexts
     /// </summary>
     public class BenjaminFriskeContext : DbContext
     {
+        public DbSet<Order> Orders { get; set; }
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder

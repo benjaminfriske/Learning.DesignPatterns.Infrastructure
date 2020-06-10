@@ -13,7 +13,10 @@ namespace Learning.DesignPatterns.Infrastructure.Repository.Implementation
     public class GenericRepository<T> : IRepository<T>
         where T : class
     {
-        private BenjaminFriskeContext context;
+        /// <summary>
+        /// The generic contexts used for all who inherit.
+        /// </summary>
+        protected BenjaminFriskeContext context;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="GenericRepository{T}"/> class.
