@@ -10,7 +10,7 @@ namespace Learning.DesignPatterns.Infrastructure.Repository.Implementation
     /// Generic repository.
     /// </summary>
     /// <typeparam name="T">Repository type.</typeparam>
-    public class GenericRepository<T> : IRepository<T>
+    public class BaseRepository<T> : IRepository<T>
         where T : class
     {
         /// <summary>
@@ -19,10 +19,10 @@ namespace Learning.DesignPatterns.Infrastructure.Repository.Implementation
         protected BenjaminFriskeContext context;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="GenericRepository{T}"/> class.
+        /// Initializes a new instance of the <see cref="BaseRepository{T}"/> class.
         /// </summary>
         /// <param name="context">Entity framework default context.</param>
-        public GenericRepository(BenjaminFriskeContext context)
+        public BaseRepository(BenjaminFriskeContext context)
         {
             this.context = context;
         }
