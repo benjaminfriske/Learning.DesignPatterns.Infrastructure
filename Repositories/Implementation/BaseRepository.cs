@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using Learning.DesignPatterns.Infrastructure.Contexts;
+using Microsoft.EntityFrameworkCore;
 
 namespace Learning.DesignPatterns.Infrastructure.Repository.Implementation
 {
@@ -16,13 +17,13 @@ namespace Learning.DesignPatterns.Infrastructure.Repository.Implementation
         /// <summary>
         /// The generic contexts used for all who inherit.
         /// </summary>
-        protected BenjaminFriskeContext context;
+        protected DbContext context;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="BaseRepository{T}"/> class.
         /// </summary>
         /// <param name="context">Entity framework default context.</param>
-        public BaseRepository(BenjaminFriskeContext context)
+        public BaseRepository(DbContext context)
         {
             this.context = context;
         }

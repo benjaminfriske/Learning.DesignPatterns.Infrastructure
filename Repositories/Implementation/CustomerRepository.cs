@@ -7,13 +7,13 @@ namespace Learning.DesignPatterns.Infrastructure.Repositories.Implementation
     /// <summary>
     /// Customer Repository.
     /// </summary>
-    public class CustomerRepository : GenericRepository<Customer>
+    public class CustomerRepository : BaseRepository<Customer>
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="CustomerRepository"/> class.
         /// </summary>
         /// <param name="context">Benjamin Friske context.</param>
-        public CustomerRepository(BenjaminFriskeContext context)
+        public CustomerRepository(SQLServerContext context)
             : base(context)
         {
         }

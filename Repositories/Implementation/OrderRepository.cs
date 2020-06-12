@@ -11,9 +11,14 @@ namespace Learning.DesignPatterns.Infrastructure.Repository.Implementation
     /// <summary>
     /// Order repository to get orders.
     /// </summary>
-    class OrderRepository : GenericRepository<Order>
+    class OrderRepository : BaseRepository<Order>
     {
-        public OrderRepository(BenjaminFriskeContext context)
+        public SQLServerContext SqlServerContext
+        {
+            get { return context as SQLServerContext; }
+        }
+
+        public OrderRepository(SQLServerContext context)
             : base(context)
         {
         }
@@ -25,7 +30,7 @@ namespace Learning.DesignPatterns.Infrastructure.Repository.Implementation
         /// <returns>Found entity.</returns>
         public override IEnumerable<Order> Find(Expression<Func<Order, bool>> predicate)
         {
-            return this.context.Orders
+            return this.SqlServerContext.Orders
                 .Include(order => order.LineItems)
                 .ThenInclude(lineItem => lineItem.Product)
                 .Where(predicate).ToList();
@@ -38,7 +43,7 @@ namespace Learning.DesignPatterns.Infrastructure.Repository.Implementation
         /// <returns>Saved order entity.</returns>
         public override Order Update(Order entity)
         {
-            var order = this.context.Orders
+            var order = this.SqlServerContext.Orders
                 .Include(o => o.LineItems)
                 .ThenInclude(lineItem => lineItem.Product)
                 .Single(o => o.OrderId == entity.OrderId);
